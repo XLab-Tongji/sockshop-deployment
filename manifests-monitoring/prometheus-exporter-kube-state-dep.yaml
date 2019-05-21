@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: kube-state-metrics
-        image: mirrorgooglecontainers/kube-state-metrics:v0.4.1
+        image: mirrorgooglecontainers/kube-state-metrics:v1.4.0
         ports:
         - containerPort: 8080
       nodeSelector:
