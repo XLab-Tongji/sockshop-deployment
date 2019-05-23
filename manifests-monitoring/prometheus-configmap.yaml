@@ -121,3 +121,9 @@ data:
               - __meta_kubernetes_pod_container_name
             action: replace
             target_label: job
+      - job_name: pushgateway
+        scrape_interval: 1s
+        static_configs:
+          - targets: ['10.60.38.173:9091']
+            labels:
+              instance: pushgateway
