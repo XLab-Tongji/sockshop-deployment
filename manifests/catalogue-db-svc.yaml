@@ -10,8 +10,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - name: sock-port
-    port: 3306
+  - port: 3306
     targetPort: 3306
   selector:
     name: catalogue-db

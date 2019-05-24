@@ -12,8 +12,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - name: sock-port
-    port: 80
+  - port: 80
     targetPort: 80
   selector:
     name: queue-master

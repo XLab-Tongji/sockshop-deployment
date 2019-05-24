@@ -10,8 +10,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - name: sock-port
-    port: 27017
+  - port: 27017
     targetPort: 27017
   selector:
     name: user-db
