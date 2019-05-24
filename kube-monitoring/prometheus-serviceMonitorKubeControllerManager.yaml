@@ -14,8 +14,10 @@ spec:
       sourceLabels:
       - __name__
     port: http-metrics
+  jobLabel: k8s-app
   namespaceSelector:
     matchNames:
     - kube-system
   selector:
-
+    matchLabels:
+      k8s-app: kube-controller-manager
