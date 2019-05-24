@@ -10,7 +10,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - protocol: TCP
+  - name: sock-port
+    protocol: TCP
     port: 80
     targetPort: 8079
     nodePort: 30001

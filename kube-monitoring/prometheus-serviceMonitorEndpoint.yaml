@@ -55,7 +55,7 @@ spec:
       - __meta_kubernetes_service_name
       separator: /
       targetLabel: job
-    port: http
+    port: sock-port
     tlsConfig:
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
   jobLabel: k8s-app

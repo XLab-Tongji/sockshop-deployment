@@ -10,7 +10,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - protocol: TCP
+  - name: sock-port
+    protocol: TCP
     port: 80
     targetPort: 8079
   selector:
