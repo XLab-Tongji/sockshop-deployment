@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   labels:
     k8s-app: sock-shop
-  name: kube-endpoint
+  name: sockshop-endpoint
   namespace: monitoring
 spec:
   endpoints:
@@ -60,7 +60,8 @@ spec:
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
   jobLabel: k8s-app
   namespaceSelector:
-    any: true
+    matchNames:
+    - sock-shop
   selector:
     matchLabels:
       k8s-app: sock-shop
