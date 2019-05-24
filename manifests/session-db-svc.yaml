@@ -5,6 +5,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   ports:

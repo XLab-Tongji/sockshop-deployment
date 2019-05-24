@@ -5,6 +5,7 @@ metadata:
   name: payment
   labels:
     name: payment
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   ports:

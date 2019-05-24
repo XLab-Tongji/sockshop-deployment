@@ -57,8 +57,11 @@ spec:
       targetLabel: job
     tlsConfig:
       caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+  jobLabel: k8s-app
   namespaceSelector:
     matchNames:
     - default
     - sock-shop
   selector:
+    matchLabels:
+      k8s-app: sock-shop

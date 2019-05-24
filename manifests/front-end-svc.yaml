@@ -5,6 +5,7 @@ metadata:
   name: front-end
   labels:
     name: front-end
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   type: LoadBalancer

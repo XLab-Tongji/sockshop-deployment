@@ -5,6 +5,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   ports:

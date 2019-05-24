@@ -5,6 +5,7 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   ports:

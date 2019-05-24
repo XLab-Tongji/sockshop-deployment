@@ -5,6 +5,7 @@ metadata:
   name: user-db
   labels:
     name: user-db
+    k8s-app: sock-shop
   namespace: sock-shop
 spec:
   ports:

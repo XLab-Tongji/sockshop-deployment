@@ -5,6 +5,7 @@ metadata:
   name: queue-master
   labels:
     name: queue-master
+    k8s-app: sock-shop
   annotations:
     prometheus.io/path: "/prometheus"
   namespace: sock-shop
