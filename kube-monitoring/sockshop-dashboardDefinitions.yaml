@@ -1197,7 +1197,7 @@ items:
         },
         "timezone": "browser",
         "title": "Sock-Shop Performance",
-        "version": 4
+        "version": 4,
         "tags": [
           "sock-shop"
         ]
@@ -1533,7 +1533,7 @@ items:
         },
         "timezone": "browser",
         "title": "Sock-Shop Analytics",
-        "version": 2
+        "version": 2,
         "tags": [
           "sock-shop"
         ]
@@ -2338,7 +2338,7 @@ items:
         },
         "timezone": "browser",
         "title": "Sock-Shop Resources",
-        "version": 7
+        "version": 7,
         "tags": [
           "sock-shop"
         ]
