@@ -3816,7 +3816,7 @@ items:
                 },
                 "hide": 0,
                 "label": null,
-                "name": "datasource",
+                "name": "DS_PROMETHEUS",
                 "options": [
 
                 ],
