@@ -30,3 +30,7 @@ spec:
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
   version: v2.7.2
+  remoteRead:
+  - url: "http://10.60.38.173:8086/api/v1/prom/write?db=prometheus"
+  remoteWrite:
+  - url: "http://10.60.38.173:8086/api/v1/prom/write?db=prometheus"
