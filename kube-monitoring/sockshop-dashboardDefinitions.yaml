@@ -1198,6 +1198,9 @@ items:
         "timezone": "browser",
         "title": "Sock-Shop Performance",
         "version": 4
+        "tags": [
+          "sock-shop"
+        ]
       }  
     sock-shop-analytics.json: |
       {
@@ -1531,7 +1534,9 @@ items:
         "timezone": "browser",
         "title": "Sock-Shop Analytics",
         "version": 2
-        
+        "tags": [
+          "sock-shop"
+        ]
       } 
     sock-shop-resources-dashboard.json: |-
       {
@@ -2334,6 +2339,9 @@ items:
         "timezone": "browser",
         "title": "Sock-Shop Resources",
         "version": 7
+        "tags": [
+          "sock-shop"
+        ]
       }  
     k8s-pod-resources.json: |-
       {
@@ -3555,6 +3563,6 @@ items:
       }
   kind: ConfigMap
   metadata:
-    name: grafana-dashboard-sock-shop-performance
+    name: grafana-dashboard-sock-shop-analyis
     namespace: monitoring
 kind: ConfigMapList

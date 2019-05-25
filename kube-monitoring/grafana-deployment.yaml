@@ -68,8 +68,8 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/statefulset
           name: grafana-dashboard-statefulset
           readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/sock-shop-performance
-          name: grafana-dashboard-sock-shop-performance
+        - mountPath: /grafana-dashboard-definitions/0/sock-shop-analyis
+          name: grafana-dashboard-sock-shop-analyis
           readOnly: false
       nodeSelector:
         beta.kubernetes.io/os: linux
@@ -120,5 +120,5 @@ spec:
           name: grafana-dashboard-statefulset
         name: grafana-dashboard-statefulset
       - configMap:
-          name: grafana-dashboard-sock-shop-performance
-        name: grafana-dashboard-sock-shop-performance
+          name: grafana-dashboard-sock-shop-analyis
+        name: grafana-dashboard-sock-shop-analyis
