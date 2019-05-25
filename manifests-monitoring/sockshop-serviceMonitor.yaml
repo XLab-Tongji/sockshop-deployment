@@ -1,0 +1,67 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    k8s-app: sock-shop
+  name: sockshop-endpoint
+  namespace: monitoring
+spec:
+  endpoints:
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 30s
+    metricRelabelings:
+    - sourceLabels:
+      - __meta_kubernetes_service_label_component
+      regex: apiserver
+      action: replace
+      targetLabel: __scheme__
+      replacement: https
+    - sourceLabels:
+      - __meta_kubernetes_service_label_kubernetes_io_cluster_service
+      action: drop
+      regex: 'true'
+    - sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_scrape
+      action: drop
+      regex: 'false'
+    - sourceLabels:
+      - __meta_kubernetes_pod_container_port_name
+      action: drop
+      regex: .*-noscrape
+    - sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_scheme
+      action: replace
+      targetLabel: __scheme__
+      regex: ^(https?)$
+      replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_path
+      action: replace
+      targetLabel: __metrics_path__
+      regex: ^(.+)$
+      replacement: $1
+    - sourceLabels:
+      - __address__
+      - __meta_kubernetes_service_annotation_prometheus_io_port
+      action: replace
+      targetLabel: __address__
+      regex: '^(.+)(?::\d+);(\d+)$'
+      replacement: '$1:$2'
+    - action: labelmap
+      regex: ^__meta_kubernetes_service_label_(.+)$
+      replacement: $1
+    - sourceLabels:
+      - __meta_kubernetes_namespace
+      - __meta_kubernetes_service_name
+      separator: /
+      targetLabel: job
+    port: sock-port
+    tlsConfig:
+      caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+  jobLabel: k8s-app
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  selector:
+    matchLabels:
+      k8s-app: sock-shop
