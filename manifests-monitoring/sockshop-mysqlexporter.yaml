@@ -1,0 +1,46 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: catalogue-db-exporter
+  labels:
+    name: catalogue-db-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: catalogue-db-exporter
+    spec:
+      containers:
+      - name: mysql-exporter
+        env:
+        - name: DATA_SOURCE_NAME
+          value: root:fake_password@(catalogue-db.sock-shop.svc:3306)/
+        image: prom/mysqld-exporter
+        imagePullPolicy: Always
+        name: mysql-exporter
+        ports:
+        - containerPort: 9104
+          protocol: TCP
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: sock-shop
+  name: catalogue-db-exporter
+  namespace: monitoring
+spec:
+  ports:
+  - port: 9104
+    protocol: TCP
+    nodePort: 39104
+    name: mysql-exporter
+  selector:
+    name: catalogue-db-exporter
+  type: NodePort
