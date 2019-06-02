@@ -1,0 +1,44 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: session-db-exporter
+  labels:
+    name: session-db-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: session-db-exporter
+    spec:
+      containers:
+      - name: redis-exporter
+        env:
+        - name: REDIS_ADDR
+          value: redis://session-db.sock-shop.svc:6379
+        image: oliver006/redis_exporter
+        imagePullPolicy: IfNotPresent
+        name: mongodb-exporter
+        ports:
+        - containerPort: 9121
+          protocol: TCP
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: sock-shop
+  name: session-db-exporter
+  namespace: monitoring
+spec:
+  ports:
+  - port: 9121
+    protocol: TCP
+    name: redis-exporter
+  selector:
+    name: session-db-exporter
