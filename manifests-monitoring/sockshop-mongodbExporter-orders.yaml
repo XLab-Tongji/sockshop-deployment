@@ -1,0 +1,44 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: orders-db-exporter
+  labels:
+    name: orders-db-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: orders-db-exporter
+    spec:
+      containers:
+      - name: mongodb-exporter
+        env:
+        - name: MONGODB_URI
+          value: mongodb://orders-db.sock-shop.svc:27017
+        image: ssheehy/mongodb-exporter
+        imagePullPolicy: IfNotPresent
+        name: mongodb-exporter
+        ports:
+        - containerPort: 9216
+          protocol: TCP
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: sock-shop
+  name: orders-db-exporter
+  namespace: monitoring
+spec:
+  ports:
+  - port: 9216
+    protocol: TCP
+    name: mongodb-exporter
+  selector:
+    name: orders-db-exporter
