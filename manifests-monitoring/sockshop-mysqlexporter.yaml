@@ -39,8 +39,6 @@ spec:
   ports:
   - port: 9104
     protocol: TCP
-    nodePort: 39104
     name: mysql-exporter
   selector:
     name: catalogue-db-exporter
-  type: NodePort

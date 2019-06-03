@@ -16,7 +16,5 @@ spec:
   - port: 9419
     name: rabbit-exporter
     protocol: TCP
-    nodePort: 39419
-  type: NodePort
   selector:
     name: rabbitmq

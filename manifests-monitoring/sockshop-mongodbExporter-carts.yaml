@@ -39,8 +39,6 @@ spec:
   ports:
   - port: 9216
     protocol: TCP
-    nodePort: 39216
     name: mongodb-exporter
   selector:
     name: carts-db-exporter
-  type: NodePort
