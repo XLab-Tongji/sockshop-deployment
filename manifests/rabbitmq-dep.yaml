@@ -37,6 +37,6 @@ spec:
         image: kbudde/rabbitmq-exporter
         ports:
         - containerPort: 9419
-          name: rabbitmq-exporter
+          name: rabbit-exporter
       nodeSelector:
         beta.kubernetes.io/os: linux

@@ -8,7 +8,7 @@ metadata:
 spec:
   endpoints:
   - interval: 30s
-    port: rabbitmq-exporter
+    port: rabbit-exporter
   selector:
     matchLabels:
       k8s-app: sock-shop
