@@ -15,10 +15,8 @@ spec:
     targetPort: 5672
   - port: 15672
     name: rabbitmq-mangement
+    targetPort: 15672
     nodePort: 35672
-  - port: 9419
-    name: rabbit-exporter
-    protocol: TCP
   type: NodePort
   selector:
     name: rabbitmq

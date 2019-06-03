@@ -16,6 +16,7 @@ spec:
       containers:
       - name: rabbit-exporter
         image: kbudde/rabbitmq-exporter
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9419
           name: rabbit-exporter
