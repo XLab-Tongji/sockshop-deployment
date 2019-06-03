@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: rabbit-exporter
-        image: kbudde/rabbitmq-exporter:v0.29.0
+        image: kbudde/rabbitmq-exporter
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9419
@@ -28,7 +28,7 @@ spec:
         - name: RABBIT_PASSWORD
           value: guest
         - name: RABBIT_CAPABILITIES
-          value: bert,no_sort
+          value: nobert
       nodeSelector:
         beta.kubernetes.io/os: linux
 
