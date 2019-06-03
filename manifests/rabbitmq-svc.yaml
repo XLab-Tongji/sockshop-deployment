@@ -15,7 +15,7 @@ spec:
     targetPort: 5672
   - port: 9090
     name: exporter
-    targetPort: exporter
+    targetPort: 9090
     protocol: TCP
   selector:
     name: rabbitmq
