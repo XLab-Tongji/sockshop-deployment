@@ -23,6 +23,12 @@ spec:
         env:
         - name: RABBIT_URL
           value: http://rabbitmq.sock-shop.svc:15672
+        - name: RABBIT_USER
+          value: guest
+        - name: RABBIT_PASSWORD
+          value: guest
+        - name: RABBIT_CAPABILITIES
+          value: bert,no_sort
       nodeSelector:
         beta.kubernetes.io/os: linux
 
