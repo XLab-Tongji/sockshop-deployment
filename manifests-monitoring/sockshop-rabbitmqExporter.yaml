@@ -1,0 +1,44 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rabbit-exporter
+  labels:
+    name: rabbit-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: rabbit-exporter
+    spec:
+      containers:
+      - name: rabbit-exporter
+        image: kbudde/rabbitmq-exporter
+        ports:
+        - containerPort: 9419
+          name: rabbit-exporter
+        env:
+        - name: RABBIT_URL
+          value: http://rabbitmq.sock-shop.svc:15672
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: sock-shop
+  name: rabbitmq-exporter
+  namespace: monitoring
+spec:
+  ports:
+  - port: 9419
+    protocol: TCP
+    name: rabbit-exporter
+    nodePort: 39419
+  type: NodePort
+  selector:
+    name: rabbit-exporter
