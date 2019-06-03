@@ -13,6 +13,8 @@ spec:
   - port: 5672
     name: rabbitmq
     targetPort: 5672
+  - port: 15672
+    name: rabbitmq-mangement
   - port: 9419
     name: rabbit-exporter
     protocol: TCP
