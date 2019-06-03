@@ -45,7 +45,5 @@ spec:
   - port: 9419
     protocol: TCP
     name: rabbit-exporter
-    nodePort: 39419
-  type: NodePort
   selector:
     name: rabbit-exporter
