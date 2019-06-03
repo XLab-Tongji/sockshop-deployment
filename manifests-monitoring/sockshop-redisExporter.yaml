@@ -40,5 +40,7 @@ spec:
   - port: 9121
     protocol: TCP
     name: redis-exporter
+    nodePort: 39121
   selector:
     name: session-db-exporter
+  type: NodePort
