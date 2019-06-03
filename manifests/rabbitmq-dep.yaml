@@ -40,6 +40,6 @@ spec:
           name: rabbit-exporter
         env:
         - name: RABBIT_URL
-          value: http://rabbitmq.sock-shop.svc:15672
+          value: http://rabbitmq:15672
       nodeSelector:
         beta.kubernetes.io/os: linux
