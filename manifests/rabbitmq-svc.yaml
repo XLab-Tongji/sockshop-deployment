@@ -13,11 +13,11 @@ spec:
   - port: 5672
     name: rabbitmq
     targetPort: 5672
-  - port: 9090
+  - port: 9419
     name: exporter
-    targetPort: 9090
+    targetPort: 9419
     protocol: TCP
-    nodePort: 39090
+    nodePort: 39419
   type: NodePort
   selector:
     name: rabbitmq
