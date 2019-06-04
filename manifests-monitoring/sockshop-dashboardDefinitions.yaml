@@ -8161,20 +8161,20 @@ items:
         "templating": {
           "list": [
             {
-                "current": {
-                    "text": "DS_PROMETHEUS",
-                    "value": "DS_PROMETHEUS"
-                },
-                "hide": 0,
-                "label": null,
-                "name": "prometheus",
-                "options": [
+              "current": {
+                  "text": "Prometheus",
+                  "value": "Prometheus"
+              },
+              "hide": 0,
+              "label": null,
+              "name": "datasource",
+              "options": [
 
-                ],
-                "query": "DS_PROMETHEUS",
-                "refresh": 1,
-                "regex": "",
-                "type": "DS_PROMETHEUS"
+              ],
+              "query": "prometheus",
+              "refresh": 1,
+              "regex": "",
+              "type": "datasource"
             },
             {
               "allFormat": "glob",
