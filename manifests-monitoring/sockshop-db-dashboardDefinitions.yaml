@@ -4596,7 +4596,6 @@ items:
         "schemaVersion": 16,
         "style": "dark",
         "tags": [
-          "Percona",
           "MySQL"
         ],
         "templating": {
@@ -5967,7 +5966,7 @@ items:
         "schemaVersion": 14,
         "style": "dark",
         "tags": [
-          "prometheus"
+          "mongodb"
         ],
         "templating": {
           "list": [
@@ -6157,7 +6156,6 @@ items:
         "title": "Prometheus Redis",
         "description": "Prometheus dashboard for Redis servers",
         "tags": [
-          "prometheus",
           "redis"
         ],
         "style": "dark",
@@ -7407,19 +7405,19 @@ items:
                     "format": "time_series",
                     "intervalFactor": 2,
                     "legendFormat": "connections",
-                    "metric": "rabbitmq_connectionsTotal",
+                    "metric": "rabbitmq_connections",
                     "refId": "A",
                     "step": 2
                   },
                   {
-                    "expr": "rabbitmq_channelsTotal",
+                    "expr": "rabbitmq_channels",
                     "format": "time_series",
                     "intervalFactor": 2,
                     "legendFormat": "channels",
                     "refId": "B"
                   },
                   {
-                    "expr": "rabbitmq_consumersTotal",
+                    "expr": "rabbitmq_consumers",
                     "format": "time_series",
                     "intervalFactor": 2,
                     "legendFormat": "consumers",
@@ -7969,8 +7967,7 @@ items:
         "schemaVersion": 14,
         "style": "dark",
         "tags": [
-          "rabbitmq",
-          "prometheus"
+          "rabbitmq"
         ],
         "templating": {
           "list": [
