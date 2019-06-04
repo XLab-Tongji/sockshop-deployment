@@ -1303,7 +1303,7 @@ items:
                 },
                 "targets": [
                   {
-                    "expr": "request_duration_seconds_count{service=\"orders\",method=\"POST\"}",
+                    "expr": "sum(request_duration_seconds_count{service=\"orders\",method=\"POST\"})",
                     "intervalFactor": 1,
                     "refId": "A",
                     "step": 30
@@ -1377,7 +1377,7 @@ items:
                 },
                 "targets": [
                   {
-                    "expr": "rate(request_duration_seconds_count{service=\"orders\",method=\"POST\"}[1h]) *24*60*60",
+                    "expr": "sum(rate(request_duration_seconds_count{service=\"orders\",method=\"POST\"}[1h]) *24*60*60)",
                     "intervalFactor": 1,
                     "refId": "A",
                     "step": 30
