@@ -8161,6 +8161,22 @@ items:
         "templating": {
           "list": [
             {
+                "current": {
+                    "text": "DS_PROMETHEUS",
+                    "value": "DS_PROMETHEUS"
+                },
+                "hide": 0,
+                "label": null,
+                "name": "prometheus",
+                "options": [
+
+                ],
+                "query": "DS_PROMETHEUS",
+                "refresh": 1,
+                "regex": "",
+                "type": "DS_PROMETHEUS"
+            },
+            {
               "allFormat": "glob",
               "auto": true,
               "auto_count": 200,
