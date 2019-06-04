@@ -7248,12 +7248,12 @@ items:
               "enable": true,
               "hide": true,
               "iconColor": "rgba(0, 211, 255, 1)",
-              "name": "Annotations & Alerts",
+              "name": "Annotations",
               "type": "dashboard"
             }
           ]
         },
-        "description": "Rabbitmq stats and alerting using RabbitMQ Exporter (https://github.com/kbudde/rabbitmq_exporter)",
+        "description": "Rabbitmq stats using RabbitMQ Exporter (https://github.com/kbudde/rabbitmq_exporter)",
         "editable": true,
         "gnetId": 4279,
         "graphTooltip": 1,
@@ -7452,6 +7452,96 @@ items:
                     "max": null,
                     "min": "0",
                     "show": true
+                  },
+                  {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  }
+                ]
+              },
+              {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": "${DS_PROMETHEUS}",
+                "decimals": 0,
+                "fill": 1,
+                "hideTimeOverride": true,
+                "id": 12,
+                "legend": {
+                  "alignAsTable": true,
+                  "avg": false,
+                  "current": true,
+                  "max": false,
+                  "min": false,
+                  "rightSide": true,
+                  "show": true,
+                  "total": false,
+                  "values": true
+                },
+                "lines": true,
+                "linewidth": 1,
+                "links": [],
+                "nullPointMode": "null",
+                "percentage": false,
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 6,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                  {
+                    "expr": "rabbitmq_running",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{node}}",
+                    "metric": "rabbitmq_running",
+                    "refId": "A",
+                    "step": 2
+                  }
+                ],
+                "thresholds": [
+                  {
+                    "colorMode": "critical",
+                    "fill": true,
+                    "line": true,
+                    "op": "lt",
+                    "value": 1
+                  }
+                ],
+                "timeFrom": "30s",
+                "timeShift": null,
+                "title": "Nodes Up",
+                "tooltip": {
+                  "shared": true,
+                  "sort": 0,
+                  "value_type": "cumulative"
+                },
+                "type": "graph",
+                "xaxis": {
+                  "buckets": null,
+                  "mode": "time",
+                  "name": null,
+                  "show": true,
+                  "values": []
+                },
+                "yaxes": [
+                  {
+                    "decimals": 0,
+                    "format": "percentunit",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": false
                   },
                   {
                     "format": "short",
@@ -7669,6 +7759,210 @@ items:
             "repeatRowId": null,
             "showTitle": false,
             "title": "Messages",
+            "titleSize": "h6"
+          },
+          {
+            "collapse": false,
+            "height": 250,
+            "panels": [
+              {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": "${DS_PROMETHEUS}",
+                "fill": 1,
+                "id": 17,
+                "legend": {
+                  "alignAsTable": true,
+                  "avg": false,
+                  "current": true,
+                  "max": false,
+                  "min": false,
+                  "rightSide": true,
+                  "show": true,
+                  "total": false,
+                  "values": true
+                },
+                "lines": true,
+                "linewidth": 2,
+                "links": [],
+                "nullPointMode": "null",
+                "percentage": false,
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 6,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                  {
+                    "expr": "rabbitmq_node_disk_free",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{node}}:free",
+                    "metric": "rabbitmq_node_mem_used",
+                    "refId": "A",
+                    "step": 2
+                  },
+                  {
+                    "expr": "rabbitmq_node_disk_free_limit",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{node}}:limit",
+                    "metric": "node_mem",
+                    "refId": "B",
+                    "step": 2
+                  }
+                ],
+                "thresholds": [
+                  {
+                    "colorMode": "critical",
+                    "fill": true,
+                    "line": true,
+                    "op": "lt",
+                    "value": 167197452
+                  }
+                ],
+                "timeFrom": null,
+                "timeShift": null,
+                "title": "Free disk space",
+                "tooltip": {
+                  "shared": true,
+                  "sort": 0,
+                  "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                  "buckets": null,
+                  "mode": "time",
+                  "name": null,
+                  "show": true,
+                  "values": []
+                },
+                "yaxes": [
+                  {
+                    "format": "decbytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  },
+                  {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  }
+                ]
+              },
+              {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": "${DS_PROMETHEUS}",
+                "fill": 1,
+                "id": 9,
+                "legend": {
+                  "alignAsTable": true,
+                  "avg": false,
+                  "current": true,
+                  "max": false,
+                  "min": false,
+                  "rightSide": true,
+                  "show": true,
+                  "total": false,
+                  "values": true
+                },
+                "lines": true,
+                "linewidth": 2,
+                "links": [],
+                "nullPointMode": "null",
+                "percentage": false,
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 6,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                  {
+                    "expr": "rabbitmq_node_mem_used",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{node}}:used",
+                    "metric": "rabbitmq_node_mem_used",
+                    "refId": "A",
+                    "step": 2
+                  },
+                  {
+                    "expr": "rabbitmq_node_mem_limit",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{node}}:limit",
+                    "metric": "node_mem",
+                    "refId": "B",
+                    "step": 2
+                  }
+                ],
+                "thresholds": [
+                  {
+                    "colorMode": "critical",
+                    "fill": true,
+                    "line": true,
+                    "op": "gt",
+                    "value": 1133956386
+                  }
+                ],
+                "timeFrom": null,
+                "timeShift": null,
+                "title": "Used memory",
+                "tooltip": {
+                  "shared": true,
+                  "sort": 0,
+                  "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                  "buckets": null,
+                  "mode": "time",
+                  "name": null,
+                  "show": true,
+                  "values": []
+                },
+                "yaxes": [
+                  {
+                    "format": "decbytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  },
+                  {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  }
+                ]
+              }
+            ],
+            "repeat": null,
+            "repeatIteration": null,
+            "repeatRowId": null,
+            "showTitle": false,
+            "title": "Resources",
             "titleSize": "h6"
           }
         ],
