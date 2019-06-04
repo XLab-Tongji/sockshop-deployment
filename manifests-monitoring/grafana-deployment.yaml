@@ -125,3 +125,6 @@ spec:
       - configMap:
           name: grafana-dashboard-sock-shop-analyis
         name: grafana-dashboard-sock-shop-analyis
+      - configMap:
+          name: grafana-dashboard-sock-shop-db-analyis
+        name: grafana-dashboard-sock-shop-db-analyis
