@@ -71,6 +71,9 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/sock-shop-analyis
           name: grafana-dashboard-sock-shop-analyis
           readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/sock-shop-db-analyis
+          name: grafana-dashboard-sock-shop-db-analyis
+          readOnly: false
       nodeSelector:
         beta.kubernetes.io/os: linux
       securityContext:
